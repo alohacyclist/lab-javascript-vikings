@@ -87,7 +87,18 @@ class War {
     if(this.vikingArmy.length && this.saxonArmy.length) return `Vikings and Saxons are still in the thick of battle.`
     
   }
+  // My attack method
+  attack(attacker, defender){
+    attacker = this.attackerArmy[Math.floor(this.attackerArmy.length * Math.random())]
+    defender = this.defenderArmy[Math.floor(this.defenderArmy.length * Math.random())]
+
+    let remainingHealth = defender.receiveDamage(attacker.strength)
+    if(defender.health <= 0) this.defenderArmy.pop()
+    return remainingHealth
+  }
 }
+
+
 
 
 
